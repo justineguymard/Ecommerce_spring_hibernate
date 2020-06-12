@@ -12,12 +12,15 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>"/>
+<link rel="text/javascript" href="<c:url value='/assets/js/bootstrap.js'/>"/>
+<link rel="text/javascript" href="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"/>
+
 
 </head>
 <body>
 
+<<<<<<< HEAD
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-pills">
 			<li role="presentation"><a
@@ -36,14 +39,24 @@
 
 	<!-- inclure le header -->
 	<%-- 	<%@ include file="/template/header.html" %> --%>
+=======
+
+
+<!-- inclure le header -->
+	<%@ include file="/template/header.html" %>
+>>>>>>> b1305515cdf53fb49426a50e39993531369ac149
 
 	<h3>${msg}: ${login}</h3>
 
 	<br />
 
+<<<<<<< HEAD
 	<a href="${pageContext.request.contextPath}/deconnexion">Se
 		déconnecter</a>
 	<br />
+=======
+
+>>>>>>> b1305515cdf53fb49426a50e39993531369ac149
 
 	<h1 style="color: red; text-align: center;">Liste des catégories</h1>
 	<div class="container">
