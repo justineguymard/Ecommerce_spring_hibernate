@@ -170,40 +170,40 @@ public class CategorieController {
 		}
 	}
 
-	// // ======================================= 5: fonctionnalité search Etudiant
-	// // a: la méthode pour afficher le formulaire d'ajout et lui associer un
-	// étudiant
-	// @GetMapping(value = "/displaySearchCat")
-	// public String afficheChercher() {
-	//
-	// return "recherche";
-	// }
-	//
-	// // b: la méthode pour traiter le formulaire d'ajout
-	// @GetMapping(value = "/submitSearch")
-	// public String soumettreRechercher(Model modele, @RequestParam("pId") int id,
-	// @RequestParam(value = "pLien", required = false) String updateLink) {
-	//
-	// Etudiant e = new Etudiant();
-	//
-	// e.setId(id);
-	//
-	// // appel de la méthode service pour ajouter l'étudiant dans la bd
-	// Etudiant eOut = eService.getEtudiantById(e, prof);
-	//
-	// if (eOut != null) {
-	//
-	// if (updateLink != null) {
-	// modele.addAttribute("emodif", eOut);
-	// }
-	//
-	// // ajouter l'étudiant dans le modele MVC
-	// modele.addAttribute("esearch", eOut);
-	// return "recherche";
-	// } else {
-	// modele.addAttribute("msg", "L'étudiant n'existe pas!");
-	// return "recherche";
-	// }
-	// }
+	// ======================================= 5: fonctionnalité search Catégorie
+	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+	// catégorie
+	@GetMapping(value = "/displaySearchCat")
+	public String afficheChercher() {
+
+		return "1_5_adminRechercheCategorie";
+	}
+
+	// b: la méthode pour traiter le formulaire d'ajout
+	@GetMapping(value = "/submitSearchCat")
+	public String soumettreRechercher(Model modele, @RequestParam("pNom") String nom,
+			@RequestParam(value = "pLien", required = false) String updateLink) {
+
+		Categorie categorie = new Categorie();
+
+		categorie.setNomCategorie(nom);
+
+		// appel de la méthode service pour ajouter l'étudiant dans la bd
+		Categorie ctOut = ctService.searchCategorieByName(categorie);
+
+		if (ctOut != null) {
+
+			if (updateLink != null) {
+				modele.addAttribute("catmodif", ctOut);
+			}
+
+			// ajouter l'étudiant dans le modele MVC
+			modele.addAttribute("catsearch", ctOut);
+			return "1_5_adminRechercheCategorie";
+		} else {
+			modele.addAttribute("msg", "La catégorie n'existe pas!");
+			return "1_5_adminRechercheCategorie";
+		}
+	}
 
 }
