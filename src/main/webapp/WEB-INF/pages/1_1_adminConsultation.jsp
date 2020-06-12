@@ -41,9 +41,9 @@
 					<td>${c.photo}</td>
 					<td>${c.description}</td>
 					<td><a
-						href="c:url value='/ectrl/submitDelete?pId=${c.idCategorie}'/>">Supprimer</a>
+						href="c:url value='/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a>
 						| <a
-						href="c:url value='/ectrl/submitSearch?pId=${c.idCategorie}&pLien=oui'/>">Modifier</a></td>
+						href="c:url value='/catctrl/submitSearchCat?pId=${c.idCategorie}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -72,9 +72,9 @@
 					<td>${p.quantite}</td>
 					<td>${p.photo}</td>
 					<td><a
-						href="c:url value='/ectrl/submitDelete?pId=${p.idProduit}'/>">Supprimer</a>
+						href="c:url value='/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a>
 						| <a
-						href="c:url value='/ectrl/submitSearch?pId=${p.idProduit}&pLien=oui'/>">Modifier</a></td>
+						href="c:url value='/prodctrl/submitSearchProd?pId=${p.idProduit}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -101,9 +101,9 @@
 					<td>${cl.email}</td>
 					<td>${cl.tel}</td>
 					<td><a
-						href="c:url value='/ectrl/submitDelete?pId=${cl.idClient}'/>">Supprimer</a>
+						href="c:url value='/clctrl/submitDeleteCl?pId=${cl.idClient}'/>">Supprimer</a>
 						| <a
-						href="c:url value='/ectrl/submitSearch?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
+						href="c:url value='/clctrl/submitSearchCl?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -124,9 +124,9 @@
 					<td>${cd.idCommande}</td>
 					<td>${cd.dateCommande}</td>
 					<td><a
-						href="c:url value='/ectrl/submitDelete?pId=${cd.idCommande}'/>">Supprimer</a>
+						href="c:url value='/comctrl/submitDeleteCom?pId=${cd.idCommande}'/>">Supprimer</a>
 						| <a
-						href="c:url value='/ectrl/submitSearch?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
+						href="c:url value='/comctrl/submitSearchCom?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -149,9 +149,9 @@
 					<td>${lc.id}</td>
 					<td>${lc.quantite}</td>
 					<td>${lc.prix}</td>
-					<td><a href="c:url value='/ectrl/submitDelete?pId=${lc.id}'/>">Supprimer</a>
+					<td><a href="c:url value='/lcctrl/submitDeleteLc?pId=${lc.id}'/>">Supprimer</a>
 						| <a
-						href="c:url value='/ectrl/submitSearch?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
+						href="c:url value='/lcctrl/submitSearchLc?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
