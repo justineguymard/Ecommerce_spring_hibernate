@@ -48,6 +48,35 @@
 			</c:forEach>
 		</table>
 	</div>
+	
+	<br/>
+	
+	<h1 style="color: red; text-align: center;">Liste des produits</h1>
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Designation</th>
+				<th>Description</th>
+				<th>Prix</th>
+				<th>Quantite</th>
+				<th>Photo</th>
+				<th>Opération</th>
+			</tr>
+			<c:forEach var="p" items="${produits}">
+				<tr>
+					<td>${p.idProduit}</td>
+					<td>${p.designation}</td>
+					<td>${p.description}</td>
+					<td>${p.prix}</td>
+					<td>${p.quantite}</td>
+					<td>${p.photo}</td>
+					<td><a href="c:url value='/ectrl/submitDelete?pId=${p.idProduit}'/>">Supprimer</a>
+						| <a href="c:url value='/ectrl/submitSearch?pId=${p.idProduit}&pLien=oui'/>">Modifier</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
 
 

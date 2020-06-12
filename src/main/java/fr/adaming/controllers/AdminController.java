@@ -15,18 +15,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Produit;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.ICategorieService;
+import fr.adaming.service.IClientService;
+import fr.adaming.service.IProduitService;
 
 @Controller
-@RequestMapping("/actrl")
+@RequestMapping("/admin/actrl")
 @Scope("session")
 public class AdminController {
 
 	@Autowired
 	private IAdminService aService;
 	@Autowired
-	private ICategorieService cService;
+	private ICategorieService ctService;
+	@Autowired
+	private IProduitService pService;
+	@Autowired
+	private IClientService clService;
+	@Autowired
+	private ICommandeService cdService;
 
 	private Admin admin;
 
@@ -51,12 +60,16 @@ public class AdminController {
 	public String afficheListe(ModelMap modele) {
 
 		// récupérer la liste
-		List<Categorie> listeCategorie = cService.getAllCategorie();
+		List<Categorie> listeCategorie = ctService.getAllCategorie();
+		List<Produit> listeProduit = pService.getAllProduit();
 
 		// l'ajouter dans le modele MVC
 		modele.addAttribute("categories", listeCategorie);
+		modele.addAttribute("produits", listeProduit);
 
 		return "1_1_adminConsultation";
 	}
+	
+	
 
 }
