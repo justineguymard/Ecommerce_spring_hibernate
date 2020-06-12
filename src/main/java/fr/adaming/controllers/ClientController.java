@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
@@ -61,7 +64,7 @@ public class ClientController {
 		// récupérer le mail du formateur connecté
 		String mail = auth.getName();
 
-		// appel de la méthode service pour récupérer toutes les infos du formateur
+		// appel de la méthode service pour récupérer toutes les infos de l'admin
 		// connecté
 
 		this.admin = aService.getAdminByMail(mail);
@@ -102,7 +105,7 @@ public class ClientController {
 
 		// b: la méthode pour traiter le formulaire d'ajout
 		@PostMapping(value = "/submitAddCl")
-		public String soumettreAjout(@ModelAttribute("lajout") Client client) {
+		public String soumettreAjout(@ModelAttribute("clajout") Client client) {
 
 			// appel de la méthode service pour ajouter la categorie dans la bd
 			Client verif = clService.addClient(client);
@@ -113,25 +116,96 @@ public class ClientController {
 				return "redirect:displayAddCl";
 			}
 		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-}
+	
+	
+		// ======================================= 3: fonctionnalité update client
+		@RequestMapping(value = "/displayUpdateCl", method = RequestMethod.GET)
+		public ModelAndView afficheMofifier() {
+
+			return new ModelAndView("3_adminModifClient", "clmodif", new Client());
+		}
+
+		// b: la méthode pour traiter le formulaire d'ajout
+		@PostMapping(value = "/submitUpdateCl")
+		public String soumettreModif(@ModelAttribute("clmodif") Client client, RedirectAttributes rda) {
+
+			// appel de la méthode service pour ajouter l'étudiant dans la bd
+			Client verif = clService.updateClient(client);
+
+			if (verif != null) {
+				return "redirect:liste";
+			} else {
+				// afficher un message d'erreur
+				String message = "La modification a échouée !";
+				rda.addFlashAttribute("msg", message);
+				return "redirect:displayUpdateCat";
+			}
+		}
+
+		// ======================================= 4: fonctionnalité delete Categorie
+		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+		// categorie
+		@GetMapping(value = "/displayDeleteCl")
+		public String afficheSupprimer() {
+
+			return "3_adminSupprClient";
+		}
+
+		// b: la méthode pour traiter le formulaire d'ajout
+		@PostMapping(value = "/submitDeleteCl")
+		public String soumettreSuppr(Model modele, @RequestParam("pId") int id) {
+
+			Client client = new Client();
+
+			client.setIdClient(id);
+
+			// appel de la méthode service pour ajouter l'étudiant dans la bd
+			Client verif = clService.deleteClient(client);
+
+			if (verif != null) {
+				return "redirect:liste";
+			} else {
+				modele.addAttribute("msg", "La suppression a échouée!");
+				return "3_adminSupprClient";
+			}
+		}
+
+		// ======================================= 5: fonctionnalité search Catégorie
+		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+		// catégorie
+		@GetMapping(value = "/displaySearchNameCl")
+		public String afficheChercher() {
+			
+			return "3_adminRechercheClientByName";
+		}
+
+		// b: la méthode pour traiter le formulaire d'ajout
+		@GetMapping(value = "/submitSearchIDCl")
+		public String soumettreRechercher(Model modele, @RequestParam("pNom") String nom,
+				@RequestParam(value = "pLien", required = false) String updateLink) {
+
+			
+			Client client = new Client();
+	
+			client.setNomClient(nom);
+
+			// appel de la méthode service pour ajouter l'étudiant dans la bd
+			List<Client> clOut = clService.searchClientByNom(client);
+
+			if (clOut != null) {
+
+				if (updateLink != null) {
+					modele.addAttribute("clmodif", clOut);
+				}
+
+				// ajouter l'étudiant dans le modele MVC
+				modele.addAttribute("catsearch", clOut);
+				return "3_adminRechercheClientByName";
+			} else {
+				modele.addAttribute("msg", "La catégorie n'existe pas!");
+				return "3_adminRechercheClientByName";
+			}
+		}
+
+	}

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Facelet Ajout</title>
+</h:head>
+<h:body>
+
+
+<br/>
+
+
+
+	<h:form>
+		<h:panelGrid columns="2">
+			Nom du client : <p:inputText value="#{panierMB.client.nomClient}" />
+			Adresse : <p:inputText value="#{panierMB.client.adresse}"/>
+			Email : <p:inputText value="#{panierMB.client.email}"/>
+			Tel : <p:inputText value="#{panierMB.client.tel}"/>
+			Enregistrement : <h:commandButton value="Ajouter" action="#{panierMB.enrCommande}" />
+		</h:panelGrid>
+	</h:form>
+
+<br/>
+<br/>
+<p:commandButton value="Liste des produits" action="4_userProduitListe.xhtml" />
+<br/>
+<br/>
+<p:commandButton value="Produits commandés" action="4_userPanierListe.xhtml" />
+<br/>
+<br/>
+<p:commandButton value="Ajout de produits" action="4_userAjoutProduitPanier.xhtml" />
+<br/>
+<br/>
+<p:commandButton value="Enregistrement de la commande" action="4_userEnregistrement.xhtml" />
+
+</h:body>
+
+</html>
