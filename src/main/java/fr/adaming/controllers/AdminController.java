@@ -15,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.entities.Admin;
 import fr.adaming.entities.Categorie;
+import fr.adaming.entities.Client;
+import fr.adaming.entities.Commande;
+import fr.adaming.entities.LigneCommande;
 import fr.adaming.entities.Produit;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.ICommandeService;
+import fr.adaming.service.ILigneCommandeService;
 import fr.adaming.service.IProduitService;
 
 @Controller
@@ -37,6 +41,8 @@ public class AdminController {
 	private IClientService clService;
 	@Autowired
 	private ICommandeService cdService;
+	@Autowired
+	private ILigneCommandeService lcService;
 
 	private Admin admin;
 
@@ -63,10 +69,17 @@ public class AdminController {
 		// récupérer la liste
 		List<Categorie> listeCategorie = ctService.getAllCategorie();
 		List<Produit> listeProduit = pService.getAllProduit();
+		List<Client> listeClient = clService.getAllClients();
+		List<Commande> listeCommande = cdService.getAllCommandes();
+		List<LigneCommande> listeLigneCommande = lcService.getAllLigneCommande();
+		
 
 		// l'ajouter dans le modele MVC
 		modele.addAttribute("categories", listeCategorie);
 		modele.addAttribute("produits", listeProduit);
+		modele.addAttribute("clients", listeClient);
+		modele.addAttribute("commandes", listeCommande);
+		modele.addAttribute("lignesCommandes", listeLigneCommande);
 
 		return "1_1_adminConsultation";
 	}
