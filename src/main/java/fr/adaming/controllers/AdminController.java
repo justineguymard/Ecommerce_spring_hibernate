@@ -19,6 +19,7 @@ import fr.adaming.entities.Produit;
 import fr.adaming.service.IAdminService;
 import fr.adaming.service.ICategorieService;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.ICommandeService;
 import fr.adaming.service.IProduitService;
 
 @Controller
