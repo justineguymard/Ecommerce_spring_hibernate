@@ -1,38 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-
-<!--  ajouter Bootstrap -->
-<!--  ajouter Bootstrap -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
-
-</head>
-<body>
-
-
-<nav class="navbar navbar-inverse">
-
-	<ul class="nav nav-pills">
-		<li role="presentation"><a
-			href="${pageContext.request.contextPath}/ectrl/liste">Accueil</a></li>
-		<li role="presentation"><a
-			href="${pageContext.request.contextPath}/ectrl/displayAdd">Ajout</a></li>
-		<li role="presentation"><a
-			href="${pageContext.request.contextPath}/ectrl/displayUpdate">Modifier</a></li>
-		<li role="presentation"><a
-			href="${pageContext.request.contextPath}/ectrl/displayFind">Rechercher</a></li>
-		<li role="presentation"><a
-			href="${pageContext.request.contextPath}/ectrl/displaySupp">Supprimer</a></li>
-	</ul>
-</nav>
-
 
 
 <nav class="navbar navbar-default navbar-static-top">
@@ -61,13 +26,13 @@
 							aria-expanded="false">Catégorie<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a
-									href="${pageContext.request.contextPath}/admin/displayAdd">Ajouter</a></li>
+									href="${pageContext.request.contextPath}/admin/displayAddCat">Ajouter</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a
-									href="${pageContext.request.contextPath}/admin/displayUpdate">Modifier</a></li>
+									href="${pageContext.request.contextPath}/admin/displayUpdateCat">Modifier</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a
-									href="${pageContext.request.contextPath}/admin/displayDelete">Supprimer</a></li>
+									href="${pageContext.request.contextPath}/admin/displayDeleteCat">Supprimer</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a
 									href="${pageContext.request.contextPath}/admin/displaySearch">Rechercher par Nom</a></li>
@@ -140,6 +105,3 @@
 		</nav>
 	</div>
 </nav>
-
-</body>
-</html>

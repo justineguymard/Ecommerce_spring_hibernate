@@ -90,7 +90,7 @@
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-        <a href="<c:url value='/admin/gestion'/>">Se Connecter</a>
+        <a href="<c:url value='/catctrl/liste'/>">Se Connecter</a>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

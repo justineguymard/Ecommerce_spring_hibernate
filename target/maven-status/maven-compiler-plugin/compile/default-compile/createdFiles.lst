@@ -16,10 +16,10 @@ fr\adaming\dao\ICommandeDao.class
 fr\adaming\dao\IProduitDao.class
 fr\adaming\service\CommandeServiceImpl.class
 fr\adaming\service\IProduitService.class
-fr\adaming\controllers\MonController.class
 fr\adaming\controllers\ClientController.class
 fr\adaming\entities\Client.class
 fr\adaming\dao\CommandeDaoImpl.class
+fr\adaming\controllers\GestionSiteController.class
 fr\adaming\dao\ICategorieDao.class
 fr\adaming\controllers\ProduitController.class
 fr\adaming\service\ClientServiceImpl.class
