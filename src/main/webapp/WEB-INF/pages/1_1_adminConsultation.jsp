@@ -20,7 +20,6 @@
 </head>
 <body>
 
-
 <!-- inclure le header -->
 	<%@ include file="/template/header.html" %>
 
