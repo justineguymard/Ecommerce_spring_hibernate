@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Specifier le chemin du fichier data_source.properties afin de lire 
+		ses valeurss -->
+	<context:property-placeholder
+		location="classpath*:data_source.properties" />
+
+	<!-- Definir le bean DataSource -->
+	<bean id="dataSourceBean2"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- Injection de dependances via les setters: specifer les infos de la 
+			connexion à la bd -->
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+
+	<!-- A) Partie Autorisation -->
+	<security:http>
+		<!-- spécifier les urls à sécuriser et les permissions d'accès -->
+		<security:intercept-url pattern="/admin/**"
+			access="ROLE_ADMIN" />
+		<!-- <security:intercept-url pattern="/public/**" -->
+		<!-- access="ROLE_CLIENT" /> -->
+
+		<!-- utilisation du formulaire de connexion généré automatiquement -->
+		<!-- <security:http-basic /> -->
+
+		<!-- utilisation d'un formulaire perso pour la connexion -->
+		<security:form-login login-page="/login"
+			authentication-failure-url="/echec" login-processing-url="/connexion" />
+
+		<!-- afficher la page accès interdit dans le cas ou l'utilisateur n'est 
+			pas autorisé à y accéder -->
+		<security:access-denied-handler
+			error-page="/denied" />
+
+		<!-- Se déconnecter -->
+		<security:logout invalidate-session="true"
+			logout-success-url="/toLogOut" logout-url="/deconnexion" />
+	</security:http>
+
+	<!-- B) Partie authentification -->
+	<security:authentication-manager>
+		<!-- spécifier le provider de l'authenfication -->
+		<security:authentication-provider>
+			<!-- récupérer les utilisateurs à partir de la bd -->
+			<security:jdbc-user-service
+				data-source-ref="dataSourceBean2"
+				users-by-username-query="SELECT mail, mdp, active FROM admins WHERE mail=?"
+				authorities-by-username-query="SELECT a.mail, r.role_name FROM admins a, roles r WHERE a.id_admin=r.admin_id AND a.mail=?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- activation de la détection automatique des composants: @controller -->
+	<context:component-scan base-package="fr.adaming.controllers"/>
+	
+	<!-- activation des annotations de spring MVC: @RequestMapping, @RequestParam, @RequestBody,... -->
+	<mvc:annotation-driven />
+	
+	<!-- forcer à intercepter les requettes http -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- définir le bean viewResolver et lui spécifier le mécanisme de la recherche des vues souhaitées -->
+	<bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- définir le mécanisme de la construction des chemins des pages JSP -->
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>
