@@ -6,6 +6,7 @@
 
 <!-- ajouter la taglib form de spring MVC -->
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,40 +18,48 @@
 </head>
 <body>
 
+	<nav class="navbar navbar-inverse">
+		<ul class="nav nav-pills">
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajout
+					Catégorie</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modif
+					Catégorie</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Suppr
+					Catégorie</a></li>
+		</ul>
+	</nav>
+
 	<h1 style="color: red; text-align: center;">Formulaire</h1>
 	<div class="container">
 		<form:form cssClass="form-horizontal" method="post"
-			action="submitUpdate" modelAttribute="emodif">
-
-			<div class="form-group">
-				<label for="idId" class="col-sm-2 control-label">Id:</label>
-				<div class="col-sm-10">
-					<form:input type="number" cssClass="form-control" id="idId"
-						placeholder="Id" path="id" />
-				</div>
-			</div>
+			action="submitAddCat" modelAttribute="catajout">
 
 			<div class="form-group">
 				<label for="idNom" class="col-sm-2 control-label">Nom:</label>
 				<div class="col-sm-10">
 					<form:input type="text" cssClass="form-control" id="idNom"
-						placeholder="Nom" path="nom" />
+						placeholder="Nom" path="nomCategorie" />
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="idPrenom" class="col-sm-2 control-label">Prenom:</label>
+				<label for="idPrenom" class="col-sm-2 control-label">Photo:</label>
 				<div class="col-sm-10">
-					<form:input type="text" cssClass="form-control" id="idPrenom"
-						placeholder="Prenom" path="prenom" />
+					<form:input type="text" cssClass="form-control" id="idPhoto"
+						placeholder="Photo" path="photo" />
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="idDn" class="col-sm-2 control-label">Date:</label>
+				<label for="idDescription" class="col-sm-2 control-label">Description:</label>
 				<div class="col-sm-10">
-					<form:input type="date" cssClass="form-control" id="idDn"
-						placeholder="date" path="dn" />
+					<form:input type="text" cssClass="form-control" id="idDescription"
+						placeholder="Description" path="description" />
 				</div>
 			</div>
 
@@ -61,6 +70,5 @@
 			</div>
 		</form:form>
 	</div>
-
 </body>
 </html>

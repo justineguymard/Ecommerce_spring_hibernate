@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <!--  ajouter la lib core de jstl -->
+	pageEncoding="ISO-8859-1"%>
+
+<!--  ajouter la lib core de jstl -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +18,32 @@
 </head>
 <body>
 
-<!-- inclure le header -->
-<%-- 	<%@ include file="/template/header.html" %> --%>
+	<nav class="navbar navbar-inverse">
+		<ul class="nav nav-pills">
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajout
+					Catégorie</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modif
+					Catégorie</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Suppr
+					Catégorie</a></li>
+		</ul>
+	</nav>
 
-<h3>${msg} : ${login}</h3>
+	<!-- inclure le header -->
+	<%-- 	<%@ include file="/template/header.html" %> --%>
 
-<br/>
+	<h3>${msg}: ${login}</h3>
 
-<a href="${pageContext.request.contextPath}/deconnexion">Se déconnecter</a><br/>
+	<br />
+
+	<a href="${pageContext.request.contextPath}/deconnexion">Se
+		déconnecter</a>
+	<br />
 
 	<h1 style="color: red; text-align: center;">Liste des catégories</h1>
 	<div class="container">
@@ -43,15 +61,17 @@
 					<td>${c.nomCategorie}</td>
 					<td>${c.photo}</td>
 					<td>${c.description}</td>
-					<td><a href="c:url value='/ectrl/submitDelete?pId=${c.idCategorie}'/>">Supprimer</a>
-						| <a href="c:url value='/ectrl/submitSearch?pId=${c.idCategorie}&pLien=oui'/>">Modifier</a></td>
+					<td><a
+						href="c:url value='/ectrl/submitDelete?pId=${c.idCategorie}'/>">Supprimer</a>
+						| <a
+						href="c:url value='/ectrl/submitSearch?pId=${c.idCategorie}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	
-	<br/>
-	
+
+	<br />
+
 	<h1 style="color: red; text-align: center;">Liste des produits</h1>
 	<div class="container">
 		<table class="table table-bordered">
@@ -72,15 +92,17 @@
 					<td>${p.prix}</td>
 					<td>${p.quantite}</td>
 					<td>${p.photo}</td>
-					<td><a href="c:url value='/ectrl/submitDelete?pId=${p.idProduit}'/>">Supprimer</a>
-						| <a href="c:url value='/ectrl/submitSearch?pId=${p.idProduit}&pLien=oui'/>">Modifier</a></td>
+					<td><a
+						href="c:url value='/ectrl/submitDelete?pId=${p.idProduit}'/>">Supprimer</a>
+						| <a
+						href="c:url value='/ectrl/submitSearch?pId=${p.idProduit}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	
-	<br/>
-	
+
+	<br />
+
 	<h1 style="color: red; text-align: center;">Liste des clients</h1>
 	<div class="container">
 		<table class="table table-bordered">
@@ -99,15 +121,17 @@
 					<td>${cl.adresse}</td>
 					<td>${cl.email}</td>
 					<td>${cl.tel}</td>
-					<td><a href="c:url value='/ectrl/submitDelete?pId=${cl.idClient}'/>">Supprimer</a>
-						| <a href="c:url value='/ectrl/submitSearch?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
+					<td><a
+						href="c:url value='/ectrl/submitDelete?pId=${cl.idClient}'/>">Supprimer</a>
+						| <a
+						href="c:url value='/ectrl/submitSearch?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	
-	<br/>
-	
+
+	<br />
+
 	<h1 style="color: red; text-align: center;">Liste des commandes</h1>
 	<div class="container">
 		<table class="table table-bordered">
@@ -120,16 +144,19 @@
 				<tr>
 					<td>${cd.idCommande}</td>
 					<td>${cd.dateCommande}</td>
-					<td><a href="c:url value='/ectrl/submitDelete?pId=${cd.idCommande}'/>">Supprimer</a>
-						| <a href="c:url value='/ectrl/submitSearch?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
+					<td><a
+						href="c:url value='/ectrl/submitDelete?pId=${cd.idCommande}'/>">Supprimer</a>
+						| <a
+						href="c:url value='/ectrl/submitSearch?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	
-	<br/>
-	
-	<h1 style="color: red; text-align: center;">Liste des lignes de commandes</h1>
+
+	<br />
+
+	<h1 style="color: red; text-align: center;">Liste des lignes de
+		commandes</h1>
 	<div class="container">
 		<table class="table table-bordered">
 			<tr>
@@ -144,7 +171,8 @@
 					<td>${lc.quantite}</td>
 					<td>${lc.prix}</td>
 					<td><a href="c:url value='/ectrl/submitDelete?pId=${lc.id}'/>">Supprimer</a>
-						| <a href="c:url value='/ectrl/submitSearch?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
+						| <a
+						href="c:url value='/ectrl/submitSearch?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
 				</tr>
 			</c:forEach>
 		</table>
