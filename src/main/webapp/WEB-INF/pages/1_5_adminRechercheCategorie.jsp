@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
+    pageEncoding="ISO-8859-1"%>
 <!--  ajouter la lib core de jstl -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- ajouter la taglib form de spring MVC -->
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +10,12 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
-<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
 
 </head>
 <body>
-
+	
 	<nav class="navbar navbar-inverse">
 		<ul class="nav nav-pills">
 			<li role="presentation"><a
@@ -36,41 +34,19 @@
 					Catégorie</a></li>
 		</ul>
 	</nav>
+	
+	<!-- inclure le header -->
+	<%@ include file="/template/header.html" %>
 
 	<h1 style="color: red; text-align: center;">Formulaire</h1>
 	<div class="container">
-		<form:form cssClass="form-horizontal" method="post"
-			action="submitUpdateCat" modelAttribute="catmodif">
-
-			<div class="form-group">
-				<label for="idCategorie" class="col-sm-2 control-label">Id:</label>
-				<div class="col-sm-10">
-					<form:input type="number" cssClass="form-control" id="idCategorie"
-						placeholder="IdCategorie" path="idCategorie" />
-				</div>
-			</div>
-
+		<form class="form-horizontal" method="get" action="submitSearchCat">
+			
 			<div class="form-group">
 				<label for="idNom" class="col-sm-2 control-label">Nom:</label>
 				<div class="col-sm-10">
-					<form:input type="text" cssClass="form-control" id="idNom"
-						placeholder="Nom" path="nomCategorie" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="idPhoto" class="col-sm-2 control-label">Photo:</label>
-				<div class="col-sm-10">
-					<form:input type="text" cssClass="form-control" id="idPhoto"
-						placeholder="Photo" path="photo" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="idDescription" class="col-sm-2 control-label">Description:</label>
-				<div class="col-sm-10">
-					<form:input type="text" cssClass="form-control" id="idDescription"
-						placeholder="Description" path="description" />
+					<input type="text" Class="form-control" id="idNom"
+						placeholder="Nom" name="pNom" />
 				</div>
 			</div>
 
@@ -79,8 +55,29 @@
 					<button type="submit" class="btn btn-default">Valider</button>
 				</div>
 			</div>
-		</form:form>
+		</form>
 	</div>
+
+	<h3 style="color: red; text-align: center;">${msg}</h3>
+
+<c:if test="${!not empty catsearch}"></c:if>
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Photo</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<td>${catsearch.idCategorie}</td>
+				<td>${catsearch.nomCategorie}</td>
+				<td>${catsearch.photo}</td>
+				<td>${catsearch.description}</td>
+			</tr>
+		</table>
+	</div>
+
 
 </body>
 </html>

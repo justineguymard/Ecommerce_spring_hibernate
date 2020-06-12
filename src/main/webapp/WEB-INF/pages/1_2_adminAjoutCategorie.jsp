@@ -15,6 +15,7 @@
 
 <!--  ajouter Bootstrap -->
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+
 </head>
 <body>
 
@@ -30,6 +31,9 @@
 					Catégorie</a></li>
 			<li role="presentation"><a
 				href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Suppr
+					Catégorie</a></li>
+			<li role="presentation"><a
+				href="${pageContext.request.contextPath}/admin/catctrl/displaySearchCat">Recherche
 					Catégorie</a></li>
 		</ul>
 	</nav>
@@ -70,5 +74,6 @@
 			</div>
 		</form:form>
 	</div>
+	
 </body>
 </html>
