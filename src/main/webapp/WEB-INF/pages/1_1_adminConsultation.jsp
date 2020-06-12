@@ -77,7 +77,77 @@
 			</c:forEach>
 		</table>
 	</div>
-
+	
+	<br/>
+	
+	<h1 style="color: red; text-align: center;">Liste des clients</h1>
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Adresse</th>
+				<th>Email</th>
+				<th>Tel</th>
+				<th>Opération</th>
+			</tr>
+			<c:forEach var="cl" items="${clients}">
+				<tr>
+					<td>${cl.idClient}</td>
+					<td>${cl.nomClient}</td>
+					<td>${cl.adresse}</td>
+					<td>${cl.email}</td>
+					<td>${cl.tel}</td>
+					<td><a href="c:url value='/ectrl/submitDelete?pId=${cl.idClient}'/>">Supprimer</a>
+						| <a href="c:url value='/ectrl/submitSearch?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	
+	<br/>
+	
+	<h1 style="color: red; text-align: center;">Liste des commandes</h1>
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Date</th>
+				<th>Opération</th>
+			</tr>
+			<c:forEach var="cd" items="${commandes}">
+				<tr>
+					<td>${cd.idCommande}</td>
+					<td>${cd.dateCommande}</td>
+					<td><a href="c:url value='/ectrl/submitDelete?pId=${cd.idCommande}'/>">Supprimer</a>
+						| <a href="c:url value='/ectrl/submitSearch?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	
+	<br/>
+	
+	<h1 style="color: red; text-align: center;">Liste des lignes de commandes</h1>
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Quantite</th>
+				<th>Prix</th>
+				<th>Opération</th>
+			</tr>
+			<c:forEach var="lc" items="${lignesCommandes}">
+				<tr>
+					<td>${lc.id}</td>
+					<td>${lc.quantite}</td>
+					<td>${lc.prix}</td>
+					<td><a href="c:url value='/ectrl/submitDelete?pId=${lc.id}'/>">Supprimer</a>
+						| <a href="c:url value='/ectrl/submitSearch?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
 
 </body>
