@@ -20,43 +20,10 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajout
-					Catégorie</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modif
-					Catégorie</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Suppr
-					Catégorie</a></li>
-		</ul>
-	</nav>
-
-	<!-- inclure le header -->
-	<%-- 	<%@ include file="/template/header.html" %> --%>
-=======
-
 
 <!-- inclure le header -->
 	<%@ include file="/template/header.html" %>
->>>>>>> b1305515cdf53fb49426a50e39993531369ac149
 
-	<h3>${msg}: ${login}</h3>
-
-	<br />
-
-<<<<<<< HEAD
-	<a href="${pageContext.request.contextPath}/deconnexion">Se
-		déconnecter</a>
-	<br />
-=======
-
->>>>>>> b1305515cdf53fb49426a50e39993531369ac149
 
 	<h1 style="color: red; text-align: center;">Liste des catégories</h1>
 	<div class="container">
