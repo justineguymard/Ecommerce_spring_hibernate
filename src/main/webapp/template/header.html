@@ -1,110 +1,68 @@
-<!-- Ajouter la lib core de jstl -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a>
+		</div>
 
-<%@ include file="/template/header.html" %>
-
-
-<nav class="navbar navbar-default navbar-static-top">
-	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-						aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand"
-						href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Catégorie<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a
-									href="${pageContext.request.contextPath}/admin/displayAddCat">Ajouter</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a
-									href="${pageContext.request.contextPath}/admin/displayUpdateCat">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a
-									href="${pageContext.request.contextPath}/admin/displayDeleteCat">Supprimer</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a
-									href="${pageContext.request.contextPath}/admin/displaySearchCat">Rechercher par Nom</a></li>
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Produits <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/admin/displayAddProd">Ajouter</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayUpdateProd">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayDeleteProd">Supprimer</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchCatProd">Rechercher par catégorie</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameProd">Rechercher par nom</a></li>
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Commandes <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/admin/displayAddCom">Ajouter</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCom">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCom">Supprimer</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCom">Rechercher par ID</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchDateCom">Rechercher par Date</a></li>
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Clients <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/admin/displayAddCl">Ajouter</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCl">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCl">Supprimer</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCl">Rechercher par ID</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameCl">Rechercher par Nom</a></li>
-							</ul></li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">Lignes de commande<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="${pageContext.request.contextPath}/admin/displayAddLC">Ajouter</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayUpdateLC">Modifier</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displayDeleteLC">Supprimer</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/admin/displaySearchLC">Rechercher par ID</a></li>
-							</ul></li>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
 				
-					</ul>
-					<form class="navbar-form navbar-left">
-						<div class="form-group"></div>
-						<a href="<c:url value='/admin/gestion'/>">Se Connecter</a>
-					</form>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
+				<li><a href="${pageContext.request.contextPath}/admin/displayAddCat">Ajout_cat</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCat">Modif_cat</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCat">Supp_cat</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchCat">Rech_cat</a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/admin/displayAddProd">Ajout_Pdt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateProd">Modid_pdt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteProd">Supp_pdt</a></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchCatProd">Rech_pdt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameProd">Rech_pdt2</a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/admin/displayAddCom">Ajout_cmd</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCom">Modid_cmd</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCom">Supp_cmd</a></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCom">Rech_cmd</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchDateCom">Rech_cmd2</a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/admin/displayAddCl">Ajout_clt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCl">Modid_clt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCl">Supp_clt</a></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCl">Rech_clt</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameCl">Rech_clt</a></li>
+				
+				<li><a href="${pageContext.request.contextPath}/admin/displayAddLC">Ajout_LC</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateLC">Modid_LC</a></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteLC">Supp_LC</a></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchLC">Rech_LC</a></li>
+				
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul></li>
+			</ul>
+		
+			
+		</div>
+		<!-- /.navbar-collapse -->
 	</div>
+	<!-- /.container-fluid -->
 </nav>
+
