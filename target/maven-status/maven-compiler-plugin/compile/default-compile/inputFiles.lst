@@ -12,7 +12,6 @@ C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_Sp
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\service\LigneCommandeServiceImpl.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\entities\Commande.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\dao\CommandeDaoImpl.java
-C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\controllers\MonController.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\service\ICategorieService.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\service\IPanierService.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\entities\Panier.java
@@ -32,6 +31,7 @@ C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_Sp
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\entities\Categorie.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\service\PanierServiceImpl.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\service\AdminServiceImpl.java
+C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\controllers\GestionSiteController.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\dao\IProduitDao.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\dao\CategorieDaoImpl.java
 C:\Users\jerem\OneDrive\Bureau\JEE\03-Workspace\06_Workspace_SPRING\ECommerce_SpringMVCIoCHibernate\src\main\java\fr\adaming\controllers\CommandeController.java
