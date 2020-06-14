@@ -12,19 +12,10 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
-<<<<<<< HEAD
-<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
-<link rel="text/javascript"
-	href="<c:url value='/assets/js/bootstrap.js'/>" />
-<link rel="text/javascript"
-	href="<c:url value='/assets/jquery/jquery-3.5.1.js'/>" />
-=======
 
-<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>"/>
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
 <script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
 <script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
-
->>>>>>> b787c1314b8995f6d910a2f322a84f5c815c4e91
 
 
 </head>
@@ -83,6 +74,7 @@
 					<th>Prix</th>
 					<th>Quantite</th>
 					<th>Photo</th>
+					<th>Categorie</th>
 					<th>Opération</th>
 				</tr>
 				<c:forEach var="p" items="${produits}">
@@ -93,6 +85,7 @@
 						<td>${p.prix}</td>
 						<td>${p.quantite}</td>
 						<td>${p.photo}</td>
+						<td>${p.categorie.idCategorie}</td>
 						<td><a
 							href="c:url value='/admin/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a>
 							| <a
@@ -153,12 +146,14 @@
 				<tr>
 					<th>ID</th>
 					<th>Date</th>
+					<th>Client</th>
 					<th>Opération</th>
 				</tr>
 				<c:forEach var="cd" items="${commandes}">
 					<tr>
 						<td>${cd.idCommande}</td>
 						<td>${cd.dateCommande}</td>
+						<td>${cd.client.idClient}</td>
 						<td><a
 							href="c:url value='/admin/comctrl/submitDeleteCom?pId=${cd.idCommande}'/>">Supprimer</a>
 							| <a
@@ -200,6 +195,9 @@
 			</table>
 		</div>
 	</div>
+
+	<!-- Footer -->
+	
 
 
 </body>
