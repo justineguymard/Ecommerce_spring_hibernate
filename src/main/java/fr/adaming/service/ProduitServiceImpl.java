@@ -63,4 +63,10 @@ public class ProduitServiceImpl implements IProduitService {
 		return produitDao.searchProduitByName(motCle);
 	}
 
+	@Override
+	public Produit searchProduit(Produit produit) {
+		// appel de la méthode dao
+		return produitDao.searchProduit(produit);
+	}
+
 }

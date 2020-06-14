@@ -12,6 +12,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<!--  ajouter Bootstrap -->
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+
 </head>
 <body>
 	
@@ -40,7 +44,15 @@
 	<h1 style="color: red; text-align: center;">Formulaire</h1>
 	<div class="container">
 		<form:form cssClass="form-horizontal" method="post"
-			action="submitAddProd" modelAttribute="prodajout">
+			action="submitUpdateProd" modelAttribute="prodmodif">
+			
+			<div class="form-group">
+				<label for="idProduit" class="col-sm-2 control-label">Id:</label>
+				<div class="col-sm-10">
+					<form:input type="number" cssClass="form-control" id="idProduit"
+						placeholder="IdProduit" path="idProduit" />
+				</div>
+			</div>
 
 			<div class="form-group">
 				<label for="idDesignation" class="col-sm-2 control-label">Designation:</label>

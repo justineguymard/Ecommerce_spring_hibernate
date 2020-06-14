@@ -14,10 +14,12 @@ public interface IProduitService {
 	public int updateProduit(Produit produit);
 
 	public int deleteProduit(Produit produit);
+	
+	public Produit searchProduit(Produit produit);
 
 	public List<Produit> searchProduitByCategorie(Categorie categorie);
 
-	public List<Produit>searchProduitByName(String motCle);
+	public List<Produit> searchProduitByName(String motCle);
 
 
 }

@@ -39,8 +39,6 @@ import fr.adaming.service.IProduitService;
 public class CategorieController {
 
 	@Autowired
-	private IAdminService aService;
-	@Autowired
 	private ICategorieService ctService;
 	@Autowired
 	private IProduitService pService;
@@ -50,24 +48,6 @@ public class CategorieController {
 	private ICommandeService cdService;
 	@Autowired
 	private ILigneCommandeService lcService;
-
-	private Admin admin;
-
-	@PostConstruct
-	public void init() {
-
-		// récupérer le context de spring security
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
-		// récupérer le mail du formateur connecté
-		String mail = auth.getName();
-
-		// appel de la méthode service pour récupérer toutes les infos du formateur
-		// connecté
-
-		this.admin = aService.getAdminByMail(mail);
-
-	}
 
 	// ======================================= 1: fonctionnalité récupérer la liste
 	@RequestMapping(value = "/liste", method = RequestMethod.GET)
@@ -181,12 +161,12 @@ public class CategorieController {
 
 	// b: la méthode pour traiter le formulaire d'ajout
 	@GetMapping(value = "/submitSearchCat")
-	public String soumettreRechercher(Model modele, @RequestParam("pNom") String nom,
+	public String soumettreRechercher(Model modele, @RequestParam("pNom") String nomCategorie,
 			@RequestParam(value = "pLien", required = false) String updateLink) {
 
 		Categorie categorie = new Categorie();
 
-		categorie.setNomCategorie(nom);
+		categorie.setNomCategorie(nomCategorie);
 
 		// appel de la méthode service pour ajouter l'étudiant dans la bd
 		Categorie ctOut = ctService.searchCategorieByName(categorie);

@@ -145,4 +145,27 @@ public class ProduitDaoImpl implements IProduitDao {
 		return null;
 	}
 
+	@Override
+	public Produit searchProduit(Produit produit) {
+		
+		// recuperer la session d'hibernate
+		Session s = sf.getCurrentSession();
+		
+		try {
+			
+			String reqOneHQL = "FROM Produit p WHERE p.designation = :pNomProd";
+			
+			Query queryOneHQL = s.createQuery(reqOneHQL);
+			
+			queryOneHQL.setParameter("pNomProd", produit.getDesignation());
+			
+			return (Produit) queryOneHQL.uniqueResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }
