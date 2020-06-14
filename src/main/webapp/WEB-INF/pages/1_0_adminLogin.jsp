@@ -15,23 +15,32 @@
 	href="${pageContext.request.contextPath}/assets/css/bootstrap.css">
 
 </head>
-<body
-	style="height: 600px; margin:0px 0px 0px 0px;">
+<body>
 
-	<form method="post" action="connexion">
-		<fieldset legend="Connectez-vous" style="margin-bottom:20px">
+	<a href="${pageContext.request.contextPath}/deconnexion">Se déconnecter</a>
 	
-		<label>Mail:</label> 
-		<input type="text" name="j_username" /> <br />
-		
-		<label>mdp:</label>
-		<input type="text" name="j_password" /> <br /> 
-		
-		<input type="submit"
-			value="Soumettre" />
-			
-		</fieldset>
-	</form>
+	<br/>
+
+	<div
+		style="displey: flex; margin: auto; width: 50%; margin-top: 100px;">
+		<form method="post" action="connexion">
+			<fieldset>
+				<legend style="text-align: center;">Connectez-vous :</legend>
+
+				<div class="form-group">
+					<label for="disabledSelect">Mail*:</label> <input type="text"
+						name="j_username" class="form-control" />
+				</div>
+
+				<div class="form-group">
+					<label for="disabledSelect">Mot-de-passe*:</label> <input
+						type="text" name="j_password" class="form-control" />
+				</div>
+
+				<button type="submit" class="btn btn-primary">Soumettre</button>
+			</fieldset>
+		</form>
+	</div>
 
 	<h3 style="color: red; text-align: center;">${msg}</h3>
 

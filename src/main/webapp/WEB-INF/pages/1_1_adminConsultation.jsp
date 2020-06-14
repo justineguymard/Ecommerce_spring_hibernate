@@ -12,26 +12,21 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
-<<<<<<< HEAD
-=======
-
->>>>>>> 80bf660e2d0439d480fadb846a94508b456dde1b
 
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
 <script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
 <script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 80bf660e2d0439d480fadb846a94508b456dde1b
 
 </head>
 <body>
 
 	<!-- inclure le header -->
 	<%@ include file="/template/header.html"%>
+
+	<a href="${pageContext.request.contextPath}/deconnexion">Se
+		déconnecter</a>
+	<br />
 
 	<div class="container">
 		<div class="panel panel-default">
@@ -53,7 +48,10 @@
 					<tr>
 						<td>${c.idCategorie}</td>
 						<td>${c.nomCategorie}</td>
-						<td>${c.photo}</td>
+						<td class="w-25"><img
+							src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
+							class="img-fluid img-thumbnail" alt="Sheep"></td>
+						<%-- 						<td>${c.photo}</td> --%>
 						<td>${c.description}</td>
 						<td><a
 							href="c:url value='/admin/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a>
@@ -206,7 +204,7 @@
 	</div>
 
 	<!-- Footer -->
-	
+	<%@ include file="/template/footer.html"%>
 
 
 </body>
