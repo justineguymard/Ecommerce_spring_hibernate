@@ -15,6 +15,8 @@ public interface IProduitDao {
 	
 	public int deleteProduit(Produit produit);
 	
+	public Produit searchProduit(Produit produit);
+	
 	public List<Produit> searchProduitByCategorie(Categorie categorie);
 	
 	public List<Produit> searchProduitByName(String motcle);

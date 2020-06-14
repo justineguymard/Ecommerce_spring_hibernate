@@ -41,7 +41,7 @@
 	<h1 style="color: red; text-align: center;">Formulaire</h1>
 	<div class="container">
 		<form class="form-horizontal" method="get" action="submitSearchCat">
-			
+
 			<div class="form-group">
 				<label for="idNom" class="col-sm-2 control-label">Nom:</label>
 				<div class="col-sm-10">
@@ -60,7 +60,7 @@
 
 	<h3 style="color: red; text-align: center;">${msg}</h3>
 
-<c:if test="${!not empty catsearch}"></c:if>
+	<c:if test="${!not empty catsearch}"></c:if>
 	<div class="container">
 		<table class="table table-bordered">
 			<tr>

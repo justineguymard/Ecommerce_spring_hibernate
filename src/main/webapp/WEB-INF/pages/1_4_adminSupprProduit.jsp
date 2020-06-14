@@ -12,6 +12,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<!--  ajouter Bootstrap -->
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+
 </head>
 <body>
 
@@ -36,6 +40,27 @@
 					Produit</a></li>
 		</ul>
 	</nav>
+	
+	<h1 style="color: red; text-align: center;">Formulaire</h1>
+	<div class="container">
+		<form Class="form-horizontal" method="post"
+			action="submitDeleteProd">
+
+			<div class="form-group">
+				<label for="idProduit" class="col-sm-2 control-label">Id:</label>
+				<div class="col-sm-10">
+					<input type="number" Class="form-control" id="idProduit"
+						placeholder="IdProduit" name="pId" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Valider</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
 </body>
 </html>
