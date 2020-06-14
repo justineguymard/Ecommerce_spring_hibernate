@@ -18,13 +18,15 @@
 
 </head>
 <body>
+<div class="container" style="margin-top: 10%" >
 
-<div style="margin-top: 10%" class="container">
 <div class="container-fluid">
         <a class="btn btn-info btn-lg btn-block" role="button"
          href="<c:url value='/admin/actrl/liste'/>">Se Connecter</a>
 
 </div>
+
+
 </div>
 
 <h3 style="color: red; text-align: center;">${msg}</h3>

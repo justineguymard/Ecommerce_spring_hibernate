@@ -12,11 +12,20 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 80bf660e2d0439d480fadb846a94508b456dde1b
 
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
 <script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
 <script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 80bf660e2d0439d480fadb846a94508b456dde1b
 
 </head>
 <body>
