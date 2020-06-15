@@ -52,11 +52,17 @@
 			</div>
 
 			<div class="form-group">
-				<label for="idPrenom" class="col-sm-2 control-label">Photo:</label>
+				<label for="idPhoto" class="col-sm-2 control-label">Photo:</label>
 				<div class="col-sm-10">
 					<form:input type="text" cssClass="form-control" id="idPhoto"
 						placeholder="Photo" path="photo" />
 				</div>
+			</div>
+
+			<div class="form-group">
+				<input type="file" class="custom-file-input" id="customFile">
+				<label class="custom-file-label" for="customFile">Choose
+					file</label>
 			</div>
 
 			<div class="form-group">
@@ -74,7 +80,18 @@
 			</div>
 		</form:form>
 	</div>
-	
-	
+
+	<script>
+		// Add the following code if you want the name of the file appear on select
+		$(".custom-file-input").on(
+				"change",
+				function() {
+					var fileName = $(this).val().split("\\").pop();
+					$(this).siblings(".custom-file-label").addClass("selected")
+							.html(fileName);
+				});
+	</script>
+
+
 </body>
 </html>
