@@ -13,12 +13,9 @@
 
 <!--  ajouter Bootstrap -->
 
-
-<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>"/>
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
 <script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
 <script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
-
-
 
 
 </head>
@@ -26,6 +23,10 @@
 
 	<!-- inclure le header -->
 	<%@ include file="/template/header.html"%>
+
+	<a href="${pageContext.request.contextPath}/deconnexion">Se
+		déconnecter</a>
+	<br />
 
 	<div class="container">
 		<div class="panel panel-default">
@@ -47,7 +48,10 @@
 					<tr>
 						<td>${c.idCategorie}</td>
 						<td>${c.nomCategorie}</td>
-						<td>${c.photo}</td>
+						<td class="w-25"><img
+							src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
+							class="img-fluid img-thumbnail" alt="Sheep"></td>
+						<%-- 						<td>${c.photo}</td> --%>
 						<td>${c.description}</td>
 						<td><a
 							href="c:url value='/admin/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a>
@@ -77,6 +81,7 @@
 					<th>Prix</th>
 					<th>Quantite</th>
 					<th>Photo</th>
+					<th>Categorie</th>
 					<th>Opération</th>
 				</tr>
 				<c:forEach var="p" items="${produits}">
@@ -87,6 +92,7 @@
 						<td>${p.prix}</td>
 						<td>${p.quantite}</td>
 						<td>${p.photo}</td>
+						<td>${p.categorie.idCategorie}</td>
 						<td><a
 							href="c:url value='/admin/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a>
 							| <a
@@ -147,12 +153,14 @@
 				<tr>
 					<th>ID</th>
 					<th>Date</th>
+					<th>Client</th>
 					<th>Opération</th>
 				</tr>
 				<c:forEach var="cd" items="${commandes}">
 					<tr>
 						<td>${cd.idCommande}</td>
 						<td>${cd.dateCommande}</td>
+						<td>${cd.client.idClient}</td>
 						<td><a
 							href="c:url value='/admin/comctrl/submitDeleteCom?pId=${cd.idCommande}'/>">Supprimer</a>
 							| <a
@@ -194,6 +202,9 @@
 			</table>
 		</div>
 	</div>
+
+	<!-- Footer -->
+	<%@ include file="/template/footer.html"%>
 
 
 </body>
