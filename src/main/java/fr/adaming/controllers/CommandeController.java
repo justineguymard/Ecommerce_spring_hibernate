@@ -181,7 +181,7 @@ public class CommandeController {
 	// ======================================= 5: fonctionnalité search Catégorie
 	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
 	// catégorie
-	@GetMapping(value = "/displaySearchNameCom")
+	@GetMapping(value = "/displaySearchDateCom")
 	public String afficheChercher() {
 
 		return "2_adminRechCommandeByDate";

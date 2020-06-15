@@ -68,44 +68,44 @@ public class LigneCommandeController {
 	// ======================================= 2: fonctionnalité ajouter Categorie
 	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
 	// catégorie
-	@GetMapping(value = "/displayAddCat")
+	@GetMapping(value = "/displayAddLC")
 	public String afficheAjouter(Model modele) {
 
 		// ajouter une categorie dans le modele mvc
-		modele.addAttribute("catajout", new Categorie());
+		modele.addAttribute("lcajout", new LigneCommande());
 
-		return "1_2_adminAjoutCategorie";
+		return "4_adminAjoutLC";
 	}
 
 	// b: la méthode pour traiter le formulaire d'ajout
-	@PostMapping(value = "/submitAddCat")
-	public String soumettreAjout(@ModelAttribute("catajout") Categorie categorie) {
+	@PostMapping(value = "/submitAddLC")
+	public String soumettreAjout(@ModelAttribute("lcajout") LigneCommande lignecommande, @ModelAttribute("prodLC") Produit produit, @ModelAttribute("catLC") Commande commande) {
 
 		// appel de la méthode service pour ajouter la categorie dans la bd
-		int verif = ctService.addCategorie(categorie);
+		int verif = lcService.addLigneCommande(lignecommande, produit, commande);
 
 		if (verif != 0) {
 			return "redirect:liste";
 		} else {
-			return "redirect:displayAddCat";
+			return "redirect:displayAddLC";
 		}
 	}
 
 	// ======================================= 3: fonctionnalité update Categorie
 	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
 	// catégorie
-	@RequestMapping(value = "/displayUpdateCat", method = RequestMethod.GET)
-	public ModelAndView afficheMofifier() {
+	@RequestMapping(value = "/displayUpdateLC", method = RequestMethod.GET)
+	public ModelAndView afficheModifier() {
 
-		return new ModelAndView("1_3_adminModifCategorie", "catmodif", new Categorie());
+		return new ModelAndView("4_adminModifLC", "lcmodif", new LigneCommande());
 	}
 
 	// b: la méthode pour traiter le formulaire d'ajout
-	@PostMapping(value = "/submitUpdateCat")
-	public String soumettreModif(@ModelAttribute("catmodif") Categorie categorie, RedirectAttributes rda) {
+	@PostMapping(value = "/submitUpdateLC")
+	public String soumettreModif(@ModelAttribute("lcmodif") LigneCommande lignecommande, RedirectAttributes rda) {
 
 		// appel de la méthode service pour ajouter l'étudiant dans la bd
-		int verif = ctService.updateCategorie(categorie);
+		int verif = lcService.updateLigneCommande(lignecommande);
 
 		if (verif != 0) {
 			return "redirect:liste";
@@ -113,35 +113,35 @@ public class LigneCommandeController {
 			// afficher un message d'erreur
 			String message = "La modification a échouée !";
 			rda.addFlashAttribute("msg", message);
-			return "redirect:displayUpdateCat";
+			return "redirect:displayUpdateLC";
 		}
 	}
 
 	// ======================================= 4: fonctionnalité delete Categorie
 	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
 	// categorie
-	@GetMapping(value = "/displayDeleteCat")
+	@GetMapping(value = "/displayDeleteLC")
 	public String afficheSupprimer() {
 
-		return "1_4_adminSupprCategorie";
+		return "4_adminSupprLC";
 	}
 
 	// b: la méthode pour traiter le formulaire d'ajout
-	@PostMapping(value = "/submitDeleteCat")
-	public String soumettreSuppr(Model modele, @RequestParam("pId") Long id) {
+	@PostMapping(value = "/submitDeleteLC")
+	public String soumettreSuppr(Model modele, @RequestParam("pId") int id) {
 
-		Categorie categorie = new Categorie();
+		LigneCommande lignecommande = new LigneCommande();
 
-		categorie.setIdCategorie(id);
+		lignecommande.setId(id);
 
 		// appel de la méthode service pour ajouter l'étudiant dans la bd
-		int verif = ctService.deleteCategorie(categorie);
+		int verif = lcService.deleteLigneCommande(lignecommande);
 
 		if (verif != 0) {
 			return "redirect:liste";
 		} else {
 			modele.addAttribute("msg", "La suppression a échouée!");
-			return "1_4_adminSupprCategorie";
+			return "4_adminSupprLC";
 		}
 	}
 

@@ -13,30 +13,19 @@
 <title>Insert title here</title>
 
 <!--  ajouter Bootstrap -->
+
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+<script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
+<script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
+
 
 </head>
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<ul class="nav nav-pills">
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/actrl/liste">Accueil</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajout
-					Catégorie</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modif
-					Catégorie</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Suppr
-					Catégorie</a></li>
-			<li role="presentation"><a
-				href="${pageContext.request.contextPath}/admin/catctrl/displaySearchCat">Recherche
-					Catégorie</a></li>
-		</ul>
-	</nav>
-
+	<!-- inclure le header -->
+	<%@ include file="/template/header.html"%>
+	
+	
 	<h1 style="color: red; text-align: center;">Formulaire</h1>
 	<div class="container">
 		<form:form cssClass="form-horizontal" method="post"

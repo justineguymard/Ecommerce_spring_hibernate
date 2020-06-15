@@ -177,7 +177,7 @@ public class ClientController {
 		@GetMapping(value = "/displaySearchNameCl")
 		public String afficheChercher() {
 			
-			return "3_adminRechercheClientByName";
+			return "3_adminRechClientByName";
 		}
 
 		// b: la méthode pour traiter le formulaire d'ajout

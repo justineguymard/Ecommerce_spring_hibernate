@@ -1,44 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+<!--  ajouter la lib core de jstl -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<h:head>
-	<title>Facelet Ajout</title>
-</h:head>
-<h:body>
 
-	<h:form>
-		<p:breadCrumb>
-			<p:menuitem value="Consultation" url="1_adminConsultation.xhtml" />
-			<p:menuitem value="AjoutCategorie" url="1_adminAjoutCategorie.xhtml" />
-			<p:menuitem value="AjoutProduit" url="1_adminAjoutProduit.xhtml" />
-			<p:menuitem value="ModifCategorie" url="1_adminModifCategorie.xhtml" />
-			<p:menuitem value="ModifProduit" url="1_adminModifProduit.xhtml" />
-			<p:menuitem value="SupprCategorie" url="1_adminSupprCategorie.xhtml" />
-			<p:menuitem value="SupprProduit" url="1_adminSupprProduit.xhtml" />
-		</p:breadCrumb>
-	</h:form>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+
+<!--  ajouter Bootstrap -->
+
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+<script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
+<script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
+
+
+</head>
+<body>
+
+	<!-- inclure le header -->
+	<%@ include file="/template/header.html"%>
+
+
 	
+			Nom:
+			Adresse:
+			Email: 
+			Tel: 
 
+	<!-- Footer -->
+	<%@ include file="/template/footer.html"%>
 
-	<h:form>
-		<h:panelGrid columns="2">
-			Nom: <p:inputText value="#{clientMB.client.nomClient}" />
-			Adresse: <p:inputText value="#{clientMB.client.adresse}"/>
-			Email: <p:inputText value="#{clientMB.client.email}"/>
-			Tel: <p:inputText value="#{clientMB.client.tel}"/>
-			<h:commandButton value="Ajouter" action="#{clientMB.addClient}"></h:commandButton>
-		</h:panelGrid>
-	</h:form>
-
-
-
-
-</h:body>
+</body>
 
 </html>
