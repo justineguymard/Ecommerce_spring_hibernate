@@ -42,21 +42,21 @@
 					<th>Nom</th>
 					<th>Photo</th>
 					<th>Description</th>
-					<th>Opération</th>
+<!-- 					<th>Opération</th> -->
 				</tr>
 				<c:forEach var="c" items="${categories}">
 					<tr>
 						<td>${c.idCategorie}</td>
 						<td>${c.nomCategorie}</td>
 						<td class="w-25"><img
-							src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg"
-							class="img-fluid img-thumbnail" alt="Sheep"></td>
+							src="${c.photo}"
+							class="img-fluid img-thumbnail" alt="Sheep" style="max-width: 70%; height: auto;"></td>
 						<%-- 						<td>${c.photo}</td> --%>
 						<td>${c.description}</td>
-						<td><a
-							href="c:url value='/admin/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a>
-							| <a
-							href="c:url value='/admin/catctrl/submitSearchCat?pNom=${c.nomCategorie}&pLien=oui'/>">Modifier</a></td>
+<!-- 						<td><a -->
+<%-- 							href="c:url value='/admin/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a> --%>
+<!-- 							| <a -->
+<%-- 							href="c:url value='/admin/catctrl/submitSearchCat?pNom=${c.nomCategorie}&pLien=oui'/>">Modifier</a></td> --%>
 					</tr>
 				</c:forEach>
 			</table>
@@ -82,7 +82,7 @@
 					<th>Quantite</th>
 					<th>Photo</th>
 					<th>Categorie</th>
-					<th>Opération</th>
+<!-- 					<th>Opération</th> -->
 				</tr>
 				<c:forEach var="p" items="${produits}">
 					<tr>
@@ -93,10 +93,10 @@
 						<td>${p.quantite}</td>
 						<td>${p.photo}</td>
 						<td>${p.categorie.idCategorie}</td>
-						<td><a
-							href="c:url value='/admin/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a>
-							| <a
-							href="c:url value='/admin/prodctrl/submitSearchProd?pNom=${p.designation}&pLien=oui'/>">Modifier</a></td>
+<!-- 						<td><a -->
+<%-- 							href="c:url value='/admin/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a> --%>
+<!-- 							| <a -->
+<%-- 							href="c:url value='/admin/prodctrl/submitSearchProd?pNom=${p.designation}&pLien=oui'/>">Modifier</a></td> --%>
 					</tr>
 				</c:forEach>
 			</table>
@@ -120,7 +120,7 @@
 					<th>Adresse</th>
 					<th>Email</th>
 					<th>Tel</th>
-					<th>Opération</th>
+<!-- 					<th>Opération</th> -->
 				</tr>
 				<c:forEach var="cl" items="${clients}">
 					<tr>
@@ -129,10 +129,10 @@
 						<td>${cl.adresse}</td>
 						<td>${cl.email}</td>
 						<td>${cl.tel}</td>
-						<td><a
-							href="c:url value='/admin/clctrl/submitDeleteCl?pId=${cl.idClient}'/>">Supprimer</a>
-							| <a
-							href="c:url value='/admin/clctrl/submitSearchCl?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td>
+<!-- 						<td><a -->
+<%-- 							href="c:url value='/admin/clctrl/submitDeleteCl?pId=${cl.idClient}'/>">Supprimer</a> --%>
+<!-- 							| <a -->
+<%-- 							href="c:url value='/admin/clctrl/submitSearchCl?pId=${cl.idClient}&pLien=oui'/>">Modifier</a></td> --%>
 					</tr>
 				</c:forEach>
 			</table>
@@ -154,17 +154,17 @@
 					<th>ID</th>
 					<th>Date</th>
 					<th>Client</th>
-					<th>Opération</th>
+<!-- 					<th>Opération</th> -->
 				</tr>
 				<c:forEach var="cd" items="${commandes}">
 					<tr>
 						<td>${cd.idCommande}</td>
 						<td>${cd.dateCommande}</td>
 						<td>${cd.client.idClient}</td>
-						<td><a
-							href="c:url value='/admin/comctrl/submitDeleteCom?pId=${cd.idCommande}'/>">Supprimer</a>
-							| <a
-							href="c:url value='/admin/comctrl/submitSearchCom?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td>
+<!-- 						<td><a -->
+<%-- 							href="c:url value='/admin/comctrl/submitDeleteCom?pId=${cd.idCommande}'/>">Supprimer</a> --%>
+<!-- 							| <a -->
+<%-- 							href="c:url value='/admin/comctrl/submitSearchCom?pId=${cd.idCommande}&pLien=oui'/>">Modifier</a></td> --%>
 					</tr>
 				</c:forEach>
 			</table>
@@ -186,17 +186,17 @@
 					<th>ID</th>
 					<th>Quantite</th>
 					<th>Prix</th>
-					<th>Opération</th>
+<!-- 					<th>Opération</th> -->
 				</tr>
 				<c:forEach var="lc" items="${lignesCommandes}">
 					<tr>
 						<td>${lc.id}</td>
 						<td>${lc.quantite}</td>
 						<td>${lc.prix}</td>
-						<td><a
-							href="c:url value='/admin/lcctrl/submitDeleteLc?pId=${lc.id}'/>">Supprimer</a>
-							| <a
-							href="c:url value='/admin/lcctrl/submitSearchLc?pId=${lc.id}&pLien=oui'/>">Modifier</a></td>
+<!-- 						<td><a -->
+<%-- 							href="c:url value='/admin/lcctrl/submitDeleteLc?pId=${lc.id}'/>">Supprimer</a> --%>
+<!-- 							| <a -->
+<%-- 							href="c:url value='/admin/lcctrl/submitSearchLc?pId=${lc.id}&pLien=oui'/>">Modifier</a></td> --%>
 					</tr>
 				</c:forEach>
 			</table>
