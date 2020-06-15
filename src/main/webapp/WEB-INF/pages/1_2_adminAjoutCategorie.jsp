@@ -49,8 +49,7 @@
 
 			<div class="form-group">
 				<input type="file" class="custom-file-input" id="customFile">
-				<label class="custom-file-label" for="customFile">Choose
-					file</label>
+				<label class="custom-file-label" for="customFile"></label>
 			</div>
 
 			<div class="form-group">
