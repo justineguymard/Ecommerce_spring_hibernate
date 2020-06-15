@@ -39,7 +39,6 @@ import fr.adaming.service.IProduitService;
 @Scope("session")
 public class CommandeController {
 
-	
 	@Autowired
 	private IAdminService aService;
 	@Autowired
@@ -53,7 +52,6 @@ public class CommandeController {
 	@Autowired
 	private ILigneCommandeService lcService;
 
-	
 	private Admin admin;
 
 	@PostConstruct
@@ -91,161 +89,164 @@ public class CommandeController {
 
 		return "1_1_adminConsultation";
 	}
-	
+
 	// ======================================= 2: fonctionnalité ajouter Categorie
-		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
-		// catégorie
-		@GetMapping(value = "/displayAddCom")
-		public String afficheAjouter(Model modele) {
+	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+	// catégorie
+	@GetMapping(value = "/displayAddCom")
+	public String afficheAjouter(Model modele) {
 
-			// ajouter une categorie dans le modele mvc
-			modele.addAttribute("comajout", new Commande());
-			
+		// ajouter une categorie dans le modele mvc
+		modele.addAttribute("comajout", new Commande());
+		modele.addAttribute("clajout", new Client());
 
-			return "2_adminAjoutCommande";
-		}
+		return "2_adminAjoutCommande";
+	}
 
-		// b: la méthode pour traiter le formulaire d'ajout
-		@PostMapping(value = "/submitAddCl")
-		public String soumettreAjout(@ModelAttribute("comajout") Commande commande) {
+	// b: la méthode pour traiter le formulaire d'ajout
+	@PostMapping(value = "/submitAddCom")
+	public String soumettreAjout(@ModelAttribute("comajout") Commande commande,
+			@ModelAttribute("clajout") Client client) {
 
-			// appel de la méthode service pour ajouter la categorie dans la bd
-			Client verif = clService.addClient(client);
-			cdService.addCommande(commandeIn, clientIn)
+		// appel de la méthode service pour ajouter la categorie dans la bd
+		Client clientverif = clService.searchClientByID(client);
 
-			if (clientverif != null && commandeverif != null) {
+		if (clientverif != null) {
+
+			Commande commandeverif = cdService.addCommande(commande, clientverif);
+
+			if (commandeverif != null) {
 				return "redirect:liste";
 			} else {
 				return "redirect:displayAddCl";
 			}
 		}
-
-	
-	
-		// ======================================= 3: fonctionnalité update client
-		@RequestMapping(value = "/displayUpdateCom", method = RequestMethod.GET)
-		public ModelAndView afficheMofifier() {
-
-			return new ModelAndView("2_adminModifCommande", "commodif", new Commande());
-		}
-
-		// b: la méthode pour traiter le formulaire d'ajout
-		@PostMapping(value = "/submitUpdateCom")
-		public String soumettreModif(@ModelAttribute("commodif") Commande commande, RedirectAttributes rda) {
-
-			// appel de la méthode service pour ajouter l'étudiant dans la bd
-			Commande verif = cdService.updateCommande(commande);
-
-			if (verif != null) {
-				return "redirect:liste";
-			} else {
-				// afficher un message d'erreur
-				String message = "La modification a échouée !";
-				rda.addFlashAttribute("msg", message);
-				return "redirect:displayUpdateCom";
-			}
-		}
-
-		// ======================================= 4: fonctionnalité delete Categorie
-		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
-		// categorie
-		@GetMapping(value = "/displayDeleteCom")
-		public String afficheSupprimer() {
-
-			return "2_adminSupprCommande";
-		}
-
-		// b: la méthode pour traiter le formulaire d'ajout
-		@PostMapping(value = "/submitDeleteCom")
-		public String soumettreSuppr(Model modele, @RequestParam("pId") int id) {
-
-			Commande commande = new Commande();
-			commande.setIdCommande(id);
-			
-
-			// appel de la méthode service pour ajouter l'étudiant dans la bd
-			Commande verif = cdService.deleteCommande(commande);
-
-			if (verif != null) {
-				return "redirect:liste";
-			} else {
-				modele.addAttribute("msg", "La suppression a échouée!");
-				return "2_adminSupprCommande";
-			}
-		}
-
-		// ======================================= 5: fonctionnalité search Catégorie
-		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
-		// catégorie
-		@GetMapping(value = "/displaySearchNameCom")
-		public String afficheChercher() {
-			
-			return "2_adminRechCommandeByDate";
-		}
-
-		// b: la méthode pour traiter le formulaire d'ajout
-		@GetMapping(value = "/submitSearchDateCom")
-		public String soumettreRechercher(Model modele, @RequestParam("pDate") Date date,
-				@RequestParam(value = "pLien", required = false) String updateLink) {
-
-			Commande commande = new Commande();
-			commande.setDateCommande(date);
-		
-
-			// appel de la méthode service pour ajouter l'étudiant dans la bd
-			List<Commande> verif = cdService.searchCommandeByDate(commande);
-
-			if (verif.size() != 0) {
-
-				if (updateLink != null) {
-					modele.addAttribute("comByDate", verif);
-				}
-
-				// ajouter l'étudiant dans le modele MVC
-				modele.addAttribute("cmdSearchDate", verif);
-				return "2_adminRechCommandeByDate";
-			} else {
-				modele.addAttribute("msg", "Aucune commande passée le "+date+".");
-				return "2_adminRechCommandeByDate";
-			}
+		else {
+			return "redirect:displayAddCl";
 		}
 		
-		// ======================================= 5: fonctionnalité search Catégorie
-		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
-		// catégorie
-		@GetMapping(value = "/displaySearchIDCom")
-		public String afficheChercher2() {
-			
-			return "2_adminRechCommandeByID";
-		}
-
-		// b: la méthode pour traiter le formulaire d'ajout
-		@GetMapping(value = "/submitSearchIDCom")
-		public String soumettreRechercher2(Model modele, @RequestParam("pId") int id,
-				@RequestParam(value = "pLien", required = false) String updateLink) {
-
-			Commande commande = new Commande();
-			
-			commande.setIdCommande(id);
-			
-
-			// appel de la méthode service pour ajouter l'étudiant dans la bd
-			Commande verif = cdService.searchCommandeByID(commande);
-			
-			if (verif != null) {
-
-				if (updateLink != null) {
-					modele.addAttribute("cmdByID", verif);
-				}
-
-				// ajouter l'étudiant dans le modele MVC
-				modele.addAttribute("cmdSearchID", verif);
-				return "2_adminRechCommandeByID";
-			} else {
-				modele.addAttribute("msg", "Cette commande n'existe pas.");
-				return "2_adminRechCommandeByID";
-			}
-		}
-
 	}
 
+	// ======================================= 3: fonctionnalité update client
+	@RequestMapping(value = "/displayUpdateCom", method = RequestMethod.GET)
+	public ModelAndView afficheMofifier() {
+
+		return new ModelAndView("2_adminModifCommande", "commodif", new Commande());
+	}
+
+	// b: la méthode pour traiter le formulaire d'ajout
+	@PostMapping(value = "/submitUpdateCom")
+	public String soumettreModif(@ModelAttribute("commodif") Commande commande, RedirectAttributes rda) {
+
+		// appel de la méthode service pour ajouter l'étudiant dans la bd
+		Commande verif = cdService.updateCommande(commande);
+
+		if (verif != null) {
+			return "redirect:liste";
+		} else {
+			// afficher un message d'erreur
+			String message = "La modification a échouée !";
+			rda.addFlashAttribute("msg", message);
+			return "redirect:displayUpdateCom";
+		}
+	}
+
+	// ======================================= 4: fonctionnalité delete Categorie
+	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+	// categorie
+	@GetMapping(value = "/displayDeleteCom")
+	public String afficheSupprimer() {
+
+		return "2_adminSupprCommande";
+	}
+
+	// b: la méthode pour traiter le formulaire d'ajout
+	@PostMapping(value = "/submitDeleteCom")
+	public String soumettreSuppr(Model modele, @RequestParam("pId") int id) {
+
+		Commande commande = new Commande();
+		commande.setIdCommande(id);
+
+		// appel de la méthode service pour ajouter l'étudiant dans la bd
+		Commande verif = cdService.deleteCommande(commande);
+
+		if (verif != null) {
+			return "redirect:liste";
+		} else {
+			modele.addAttribute("msg", "La suppression a échouée!");
+			return "2_adminSupprCommande";
+		}
+	}
+
+	// ======================================= 5: fonctionnalité search Catégorie
+	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+	// catégorie
+	@GetMapping(value = "/displaySearchNameCom")
+	public String afficheChercher() {
+
+		return "2_adminRechCommandeByDate";
+	}
+
+	// b: la méthode pour traiter le formulaire d'ajout
+	@GetMapping(value = "/submitSearchDateCom")
+	public String soumettreRechercher(Model modele, @RequestParam("pDate") Date date,
+			@RequestParam(value = "pLien", required = false) String updateLink) {
+
+		Commande commande = new Commande();
+		commande.setDateCommande(date);
+
+		// appel de la méthode service pour ajouter l'étudiant dans la bd
+		List<Commande> verif = cdService.searchCommandeByDate(commande);
+
+		if (verif.size() != 0) {
+
+			if (updateLink != null) {
+				modele.addAttribute("comByDate", verif);
+			}
+
+			// ajouter l'étudiant dans le modele MVC
+			modele.addAttribute("cmdSearchDate", verif);
+			return "2_adminRechCommandeByDate";
+		} else {
+			modele.addAttribute("msg", "Aucune commande passée le " + date + ".");
+			return "2_adminRechCommandeByDate";
+		}
+	}
+
+	// ======================================= 5: fonctionnalité search Catégorie
+	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+	// catégorie
+	@GetMapping(value = "/displaySearchIDCom")
+	public String afficheChercher2() {
+
+		return "2_adminRechCommandeByID";
+	}
+
+	// b: la méthode pour traiter le formulaire d'ajout
+	@GetMapping(value = "/submitSearchIDCom")
+	public String soumettreRechercher2(Model modele, @RequestParam("pId") int id,
+			@RequestParam(value = "pLien", required = false) String updateLink) {
+
+		Commande commande = new Commande();
+
+		commande.setIdCommande(id);
+
+		// appel de la méthode service pour ajouter l'étudiant dans la bd
+		Commande verif = cdService.searchCommandeByID(commande);
+
+		if (verif != null) {
+
+			if (updateLink != null) {
+				modele.addAttribute("cmdByID", verif);
+			}
+
+			// ajouter l'étudiant dans le modele MVC
+			modele.addAttribute("cmdSearchID", verif);
+			return "2_adminRechCommandeByID";
+		} else {
+			modele.addAttribute("msg", "Cette commande n'existe pas.");
+			return "2_adminRechCommandeByID";
+		}
+	}
+
+}

@@ -98,7 +98,7 @@ public class ClientController {
 		public String afficheAjouter(Model modele) {
 
 			// ajouter une categorie dans le modele mvc
-			modele.addAttribute("clajout", new Categorie());
+			modele.addAttribute("clajout", new Client());
 
 			return "3_adminAjoutClient";
 		}
