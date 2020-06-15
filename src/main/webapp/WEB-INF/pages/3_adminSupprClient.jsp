@@ -17,6 +17,7 @@
 <!--  ajouter Bootstrap -->
 
 <link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/assets/css/footer.css'/>" />
 <script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
 <script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
 

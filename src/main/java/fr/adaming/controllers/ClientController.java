@@ -202,10 +202,10 @@ public class ClientController {
 
 				// ajouter l'étudiant dans le modele MVC
 				modele.addAttribute("clSearchName", clOut);
-				return "3_adminRechercheClientByName";
+				return "3_adminRechClientByName";
 			} else {
 				modele.addAttribute("msg", "Ce client n'existe pas.");
-				return "3_adminRechercheClientByName";
+				return "3_adminRechClientByName";
 			}
 		}
 		
@@ -215,7 +215,7 @@ public class ClientController {
 		@GetMapping(value = "/displaySearchIDCl")
 		public String afficheChercher2() {
 			
-			return "3_adminRechercheClientByID";
+			return "3_adminRechClientByID";
 		}
 
 		// b: la méthode pour traiter le formulaire d'ajout
@@ -239,10 +239,10 @@ public class ClientController {
 
 				// ajouter l'étudiant dans le modele MVC
 				modele.addAttribute("clSearchID", clOut);
-				return "3_adminRechercheClientByID";
+				return "3_adminRechClientByID";
 			} else {
 				modele.addAttribute("msg", "Ce client n'existe pas.");
-				return "3_adminRechercheClientByID";
+				return "3_adminRechClientByID";
 			}
 		}
 
