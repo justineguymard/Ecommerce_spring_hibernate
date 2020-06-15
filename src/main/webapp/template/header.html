@@ -16,50 +16,79 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				
-				<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajout_cat</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modif_cat</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Supp_cat</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/catctrl/displaySearchCat">Rech_cat</a></li>
-				
-				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayAddProd">Ajout_Pdt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayUpdateProd">Modid_pdt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayDeleteProd">Supp_pdt</a></li>					
-				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displaySearchProdByCat">Rech_pdt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displaySearchProdByName">Rech_pdt2</a></li>
-				
-				<li><a href="${pageContext.request.contextPath}/admin/displayAddCom">Ajout_cmd</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCom">Modid_cmd</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCom">Supp_cmd</a></li>					
-				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCom">Rech_cmd</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displaySearchDateCom">Rech_cmd2</a></li>
-				
-				<li><a href="${pageContext.request.contextPath}/admin/displayAddCl">Ajout_clt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCl">Modid_clt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCl">Supp_clt</a></li>					
-				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCl">Rech_clt</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameCl">Rech_clt</a></li>
-				
-				<li><a href="${pageContext.request.contextPath}/admin/displayAddLC">Ajout_LC</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateLC">Modid_LC</a></li>
-				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteLC">Supp_LC</a></li>					
-				<li><a href="${pageContext.request.contextPath}/admin/displaySearchLC">Rech_LC</a></li>
-				
-				<li><a href="${pageContext.request.contextPath}/deconnexion">Se
-		déconnecter</a></li>
+			
 				
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Catégories<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayAddCat">Ajouter</a></li>
+						<li role="separator" class="divider"></li>
 						<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayUpdateCat">Modifier</a></li>
+						<li role="separator" class="divider"></li>
 						<li><a href="${pageContext.request.contextPath}/admin/catctrl/displayDeleteCat">Supprimer</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="${pageContext.request.contextPath}/admin/catctrl/displaySearchCat">Rechercher</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
+						
 					</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Produits<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayAddProd">Ajouter</a></li>
+						<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayUpdateProd">Modifier</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displayDeleteProd">Supprimer</a></li>
+				<li role="separator" class="divider"></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displaySearchProdByCat">Recherche par catégorie</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/prodctrl/displaySearchProdByName">Recherche par nom</a></li>
+					</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Commandes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="${pageContext.request.contextPath}/admin/displayAddCom">Ajouter</a></li>
+						<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCom">Modifier</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCom">Supprimer</a></li>
+				<li role="separator" class="divider"></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCom">Recherche par ID</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchDateCom">Recherche par date</a></li>
+						
+					</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Clients<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+							<li><a href="${pageContext.request.contextPath}/admin/displayAddCl">Ajouter</a></li>
+							<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateCl">Modifier</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteCl">Supprimer</a></li>
+				<li role="separator" class="divider"></li>					
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchIDCl">Recherche par ID</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displaySearchNameCl">Recherche par Nom</a></li>
+						
+					</ul></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false">Lignes de Commandes<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="${pageContext.request.contextPath}/admin/displayAddLC">Ajouter</a></li>
+						<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayUpdateLC">Modifier</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="${pageContext.request.contextPath}/admin/displayDeleteLC">Supprimer</a></li>					
+				
+					</ul></li>
+					
+						<li><a href="${pageContext.request.contextPath}/deconnexion">Se
+		déconnecter</a></li>
 			</ul>
 		
 			

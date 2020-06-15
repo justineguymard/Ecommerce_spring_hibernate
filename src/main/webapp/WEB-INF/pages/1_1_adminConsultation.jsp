@@ -24,8 +24,6 @@
 	<!-- inclure le header -->
 	<%@ include file="/template/header.html"%>
 
-	<a href="${pageContext.request.contextPath}/deconnexion">Se
-		déconnecter</a>
 	<br />
 
 	<div class="container">

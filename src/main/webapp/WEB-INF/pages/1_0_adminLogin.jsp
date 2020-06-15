@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<a href="${pageContext.request.contextPath}/deconnexion">Se déconnecter</a>
+
 	
 	<br/>
 
