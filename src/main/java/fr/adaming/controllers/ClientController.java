@@ -159,8 +159,9 @@ public class ClientController {
 			Client client = new Client();
 
 			client.setIdClient(id);
-
+			
 			// appel de la méthode service pour ajouter l'étudiant dans la bd
+			
 			Client verif = clService.deleteClient(client);
 
 			if (verif != null) {

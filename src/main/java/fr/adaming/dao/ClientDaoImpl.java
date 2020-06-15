@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.entities.Client;
+import fr.adaming.entities.Commande;
 
 @Repository
 public class ClientDaoImpl implements IClientDao {
@@ -81,7 +82,7 @@ public class ClientDaoImpl implements IClientDao {
 		Session s = sf.getCurrentSession();
 
 		try {
-
+		
 			s.delete(clientIn);
 
 			return clientIn;
