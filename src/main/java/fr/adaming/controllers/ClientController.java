@@ -181,7 +181,7 @@ public class ClientController {
 		}
 
 		// b: la méthode pour traiter le formulaire d'ajout
-		@GetMapping(value = "/submitSearchIDCl")
+		@GetMapping(value = "/submitSearchNameCl")
 		public String soumettreRechercher(Model modele, @RequestParam("pNom") String nom,
 				@RequestParam(value = "pLien", required = false) String updateLink) {
 
@@ -196,15 +196,52 @@ public class ClientController {
 			if (clOut != null) {
 
 				if (updateLink != null) {
-					modele.addAttribute("clmodif", clOut);
+					modele.addAttribute("clByName", clOut);
 				}
 
 				// ajouter l'étudiant dans le modele MVC
-				modele.addAttribute("catsearch", clOut);
+				modele.addAttribute("clSearchName", clOut);
 				return "3_adminRechercheClientByName";
 			} else {
-				modele.addAttribute("msg", "La catégorie n'existe pas!");
+				modele.addAttribute("msg", "Ce client n'existe pas.");
 				return "3_adminRechercheClientByName";
+			}
+		}
+		
+		// ======================================= 5: fonctionnalité search Catégorie
+		// a: la méthode pour afficher le formulaire d'ajout et lui associer une
+		// catégorie
+		@GetMapping(value = "/displaySearchIDCl")
+		public String afficheChercher2() {
+			
+			return "3_adminRechercheClientByID";
+		}
+
+		// b: la méthode pour traiter le formulaire d'ajout
+		@GetMapping(value = "/submitSearchIDCl")
+		public String soumettreRechercher2(Model modele, @RequestParam("pId") int id,
+				@RequestParam(value = "pLien", required = false) String updateLink) {
+
+			
+			Client client = new Client();
+	
+			client.setIdClient(id);
+
+			// appel de la méthode service pour ajouter l'étudiant dans la bd
+			Client clOut = clService.searchClientByID(client);
+			
+			if (clOut != null) {
+
+				if (updateLink != null) {
+					modele.addAttribute("clByID", clOut);
+				}
+
+				// ajouter l'étudiant dans le modele MVC
+				modele.addAttribute("clSearchID", clOut);
+				return "3_adminRechercheClientByID";
+			} else {
+				modele.addAttribute("msg", "Ce client n'existe pas.");
+				return "3_adminRechercheClientByID";
 			}
 		}
 
