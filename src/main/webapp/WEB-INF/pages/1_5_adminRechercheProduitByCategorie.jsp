@@ -33,8 +33,7 @@
 			<div class="form-group">
 				<label for="idNom" class="col-sm-2 control-label">Nom Catégorie:</label>
 				<div class="col-sm-10">
-					<input type="text" Class="form-control" id="idNom"
-						placeholder="Nom" name="pNom" />
+					<input type="text" Class="form-control" id="idNom" placeholder="Nom" name="pNom" />
 				</div>
 			</div>
 

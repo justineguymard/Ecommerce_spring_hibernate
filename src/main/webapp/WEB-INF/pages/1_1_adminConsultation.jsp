@@ -49,7 +49,6 @@
 						<td class="w-25"><img
 							src="${c.photo}"
 							class="img-fluid img-thumbnail" alt="Sheep" style="max-width: 70%; height: auto;"></td>
-						<%-- 						<td>${c.photo}</td> --%>
 						<td>${c.description}</td>
 <!-- 						<td><a -->
 <%-- 							href="c:url value='/admin/catctrl/submitDeleteCat?pId=${c.idCategorie}'/>">Supprimer</a> --%>
@@ -89,7 +88,9 @@
 						<td>${p.description}</td>
 						<td>${p.prix}</td>
 						<td>${p.quantite}</td>
-						<td>${p.photo}</td>
+						<td class="w-25"><img
+							src="${p.photo}"
+							class="img-fluid img-thumbnail" alt="Sheep" style="max-width: 50%; height: auto;"></td>
 						<td>${p.categorie.idCategorie}</td>
 <!-- 						<td><a -->
 <%-- 							href="c:url value='/admin/prodctrl/submitDeleteProd?pId=${p.idProduit}'/>">Supprimer</a> --%>
