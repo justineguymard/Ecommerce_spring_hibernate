@@ -29,7 +29,7 @@
 	<%@ include file="/template/header.html"%>
 
 
-	<h1 style="color: red; text-align: center;">Rechercher un client</h1>
+	<h1 style="color: red; text-align: center;">Rechercher un client par son ID</h1>
 	<div class="container">
 
 
@@ -51,8 +51,28 @@
 
 		<h1>${msg}</h1>
 	</div>
+  	<c:if test="${clSearchID != null}">
+	<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Adresse</th>
+				<th>Email</th>
+				<th>Tel</th>
+			</tr>
+			<tr>
+				<td>${clSearchID.idClient}</td>
+				<td>${clSearchID.nomClient}</td>
+				<td>${clSearchID.adresse}</td>
+				<td>${clSearchID.email}</td>
+				<td>${clSearchID.tel}</td>
+			</tr>
+		</table>
+	</div>
+	</c:if>
 	
-	
+
 	<!-- Footer -->
 	<%@ include file="/template/footer.html"%>
 

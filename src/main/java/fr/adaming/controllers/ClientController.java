@@ -201,7 +201,8 @@ public class ClientController {
 				}
 
 				// ajouter l'étudiant dans le modele MVC
-				modele.addAttribute("clSearchName", clOut);
+				modele.addAttribute("clOut", clOut);
+				System.out.println(clOut);
 				return "3_adminRechClientByName";
 			} else {
 				modele.addAttribute("msg", "Ce client n'existe pas.");
@@ -227,10 +228,10 @@ public class ClientController {
 			Client client = new Client();
 	
 			client.setIdClient(id);
-
+			System.out.println(client);
 			// appel de la méthode service pour ajouter l'étudiant dans la bd
 			Client clOut = clService.searchClientByID(client);
-			
+			System.out.println("clout search id :"+clOut);
 			if (clOut != null) {
 
 				if (updateLink != null) {

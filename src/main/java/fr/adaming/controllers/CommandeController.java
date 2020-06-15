@@ -1,18 +1,22 @@
 package fr.adaming.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,6 +73,23 @@ public class CommandeController {
 		this.admin = aService.getAdminByMail(mail);
 
 	}
+	
+
+	@InitBinder // cette annotation permets de definir la méthode à appeler lors d'une
+				// conversion des donénes
+	public void initBinding(WebDataBinder binder) {
+		// l'objet de type WebDataBinder permet de lier les params de la requete aux
+		// attributs de l'objet java
+		// specifier le format String de la date à convertir en java.util.Date
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		// forcer la méthode de conversion à lever une exception de type parseException
+		// si la date reçue ne correspond pas au pattern
+		sdf.setLenient(false);
+
+		// la méthode registerCustomEditor permet de configurer la conversion du param
+		// de la requete recue au tyoe de l'attribut concernés
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
+	}
 
 	@RequestMapping(value = "/liste", method = RequestMethod.GET)
 	public String afficheListe(ModelMap modele) {
@@ -94,22 +115,24 @@ public class CommandeController {
 	// a: la méthode pour afficher le formulaire d'ajout et lui associer une
 	// catégorie
 	@GetMapping(value = "/displayAddCom")
-	public String afficheAjouter(Model modele) {
-
-		// ajouter une categorie dans le modele mvc
-		modele.addAttribute("comajout", new Commande());
-		modele.addAttribute("clajout", new Client());
+	public String afficheAjouter() {
 
 		return "2_adminAjoutCommande";
 	}
 
 	// b: la méthode pour traiter le formulaire d'ajout
-	@PostMapping(value = "/submitAddCom")
-	public String soumettreAjout(@ModelAttribute("comajout") Commande commande,
-			@ModelAttribute("clajout") Client client) {
+	@GetMapping(value = "/submitAddCom")
+	public String soumettreAjout(Model model, @RequestParam("pDate") Date dateIn, 
+			@RequestParam("pIdCl") int idClIn) {
 
+		Client client = new Client();
+		client.setIdClient(idClIn);
 		// appel de la méthode service pour ajouter la categorie dans la bd
 		Client clientverif = clService.searchClientByID(client);
+		
+		Commande commande = new Commande();
+		commande.setDateCommande(dateIn);
+		System.out.println("\n\n==========="+commande+" :::: "+clientverif);
 
 		if (clientverif != null) {
 
@@ -149,6 +172,43 @@ public class CommandeController {
 			rda.addFlashAttribute("msg", message);
 			return "redirect:displayUpdateCom";
 		}
+	}
+	
+	@GetMapping(value = "/submitUpdateCom")
+	public String soumettreAjout(Model model, @RequestParam("pId") int idCom, 
+			@RequestParam("pDate") Date dateIn, 
+			@RequestParam("pIdCl") int idCl) {
+
+		Client client = new Client();
+		client.setIdClient(idCl);
+		// appel de la méthode service pour ajouter la categorie dans la bd
+		Client clientverif = clService.searchClientByID(client);
+		
+		
+		Commande commande = new Commande();
+		commande.setIdCommande(idCom);
+		commande.setDateCommande(dateIn);
+		commande.setClient(clientverif);
+				
+		System.out.println("\n\n==========="+commande+" :::: "+clientverif);
+
+		if (clientverif != null) {
+
+			Commande commandeverif = cdService.updateCommande(commande);
+			System.out.println("\n ===" +commandeverif);
+
+			if (commandeverif != null) {
+				return "redirect:liste";
+			} else {
+				model.addAttribute("msg", "La modification a échouée !");
+				
+				return "redirect:displayUpdateCom";
+			} 
+		}else {
+			model.addAttribute("msg","Pas de client !");
+		return "redirect:displayUpdateCom";
+		}
+		
 	}
 
 	// ======================================= 4: fonctionnalité delete Categorie
