@@ -29,7 +29,7 @@
 	<%@ include file="/template/header.html"%>
 
 
-	<h1 style="color: red; text-align: center;">Rechercher des clients par leurs noms</h1>
+	<h1 style="color: red; text-align: center;">Rechercher des commandes par date</h1>
 	<div class="container">
 
 
