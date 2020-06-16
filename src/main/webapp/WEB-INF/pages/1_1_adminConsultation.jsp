@@ -201,7 +201,9 @@
 			</table>
 		</div>
 	</div>
-
+<div id="divFoot" style="height: 100px">
+</div>
+	
 	<!-- Footer -->
 	<%@ include file="/template/footer.html"%>
 
