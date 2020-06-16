@@ -96,7 +96,7 @@ public class CommandeDaoImpl implements ICommandeDao {
 
 		try {
 
-			String reqOneHQL = "FROM Produit p WHERE p.idCommande=:pIdCommande";
+			String reqOneHQL = "FROM Commande c WHERE c.idCommande=:pIdCommande";
 
 			Query queryOneHQL = s.createQuery(reqOneHQL);
 
@@ -112,6 +112,26 @@ public class CommandeDaoImpl implements ICommandeDao {
 		return null;
 	}
 
+	
+
+	@Override
+	public Commande searchCommandeByID(int id) {
+		
+		Session s = sf.getCurrentSession();
+
+		try {
+			
+			Commande commande = s.get(Commande.class, id);
+			
+			return commande;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+	
 	@Override
 	public List<Commande> searchCommandeByDate(Commande commandeIn) {
 		// recuperer la session d'hibernate
@@ -123,7 +143,7 @@ public class CommandeDaoImpl implements ICommandeDao {
 
 			Query query = s.createQuery(reqOneHQL);
 
-			query.setParameter("pDateCOmmande", commandeIn.getDateCommande());
+			query.setParameter("pDateCommande", commandeIn.getDateCommande());
 
 			return query.list();
 

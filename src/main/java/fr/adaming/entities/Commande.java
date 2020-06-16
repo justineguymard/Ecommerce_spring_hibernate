@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name="commandes")
 public class Commande implements Serializable {
@@ -32,6 +35,7 @@ public class Commande implements Serializable {
 	private Client client;
 	
 	@OneToMany(mappedBy="commande")
+	@Cascade(CascadeType.DELETE)
 	private List <LigneCommande> listeLignesCommandes;
 	
 	

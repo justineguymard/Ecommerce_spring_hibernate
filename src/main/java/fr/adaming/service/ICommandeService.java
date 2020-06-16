@@ -18,6 +18,8 @@ public interface ICommandeService {
 	
 	public Commande searchCommandeByID (Commande commandeIn);
 	
+	public Commande searchCommandeByID(int id);
+	
 	public List<Commande> searchCommandeByDate (Commande commandeIn);
 
 }

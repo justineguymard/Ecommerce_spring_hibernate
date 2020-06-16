@@ -1,38 +1,83 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+<!--  ajouter la lib core de jstl -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<h:head>
-	<title>Facelet Ajout</title>
-</h:head>
-<h:body>
+<!-- ajouter la taglib form de spring MVC -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-	<h:form>
-		<p:breadCrumb>
-			<p:menuitem value="Consultation" url="1_adminConsultation.xhtml" />
-			<p:menuitem value="AjoutCategorie" url="1_adminAjoutCategorie.xhtml" />
-			<p:menuitem value="AjoutProduit" url="1_adminAjoutProduit.xhtml" />
-			<p:menuitem value="ModifCategorie" url="1_adminModifCategorie.xhtml" />
-			<p:menuitem value="ModifProduit" url="1_adminModifProduit.xhtml" />
-			<p:menuitem value="SupprCategorie" url="1_adminSupprCategorie.xhtml" />
-			<p:menuitem value="SupprProduit" url="1_adminSupprProduit.xhtml" />
-		</p:breadCrumb>
-	</h:form>
 
-	<h:form>
-		<h:panelGrid columns="2">
-			ID: <p:inputText value="#{clientMB.client.idClient}" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Ajout client</title>
 
-			<h:commandButton value="Supprimer" action="#{clientMB.deleteClient}" />
-		</h:panelGrid>
-	</h:form>
+<!--  ajouter Bootstrap -->
 
-	<h:messages />
-</h:body>
+<link rel="stylesheet" href="<c:url value='/assets/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/assets/css/footer.css'/>" />
+<script src="<c:url value='/assets/jquery/jquery-3.5.1.js'/>"></script>
+<script src="<c:url value='/assets/js/bootstrap.js'/>"></script>
+
+
+</head>
+<body>
+
+	<!-- inclure le header -->
+	<%@ include file="/template/header.html"%>
+
+
+	<h1 style="color: red; text-align: center;">Rechercher des clients par leurs noms</h1>
+	<div class="container">
+
+
+	<form class="form-horizontal" method="get" action="submitSearchDateCom">
+
+			<div class="form-group">
+				<label for="idID" class="col-sm-2 control-label">Date de la commande:</label>
+				<div class="col-sm-10">
+					<input type="date" Class="form-control" id="idID" placeholder="Date" name="pDate" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Rechercher</button>
+				</div>
+			</div>
+		</form>
+
+		<h1>${msg}</h1>
+	</div>
+  	<c:if test="${cmdSearchDate != null}">
+	<div class="container">
+		<table class="table table-bordered">
+		<tr>
+				<th>ID de la commande</th>
+				<th>Date</th>
+				<th>ID du client</th>
+
+			</tr>
+		<c:forEach items="${comByDate}" var="com"  >
+			
+			<tr>
+			
+				<td>${com.idCommande}</td>
+				<td>${com.dateCommande}</td>
+
+				</tr>
+			</c:forEach>
+			
+		</table>
+	</div>
+	</c:if>
+	
+
+	<!-- Footer -->
+	<%@ include file="/template/footer.html"%>
+
+</body>
 
 </html>

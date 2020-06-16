@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name="clients")
 public class Client implements Serializable {
@@ -31,7 +35,9 @@ public class Client implements Serializable {
 	private String tel;
 	
 	
+
 	@OneToMany(mappedBy="client")
+	@Cascade(CascadeType.DELETE)
 	private List<Commande> listeCommandes;
 
 

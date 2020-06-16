@@ -18,6 +18,8 @@ public interface ICommandeDao {
 	
 	public List<Commande> searchCommandeByDate (Commande commandeIn);
 	
+	public Commande searchCommandeByID(int id);
+	
 	
 	
 

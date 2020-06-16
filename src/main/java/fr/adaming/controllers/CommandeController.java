@@ -257,13 +257,12 @@ public class CommandeController {
 
 		// appel de la méthode service pour ajouter l'étudiant dans la bd
 		List<Commande> verif = cdService.searchCommandeByDate(commande);
-
-		if (verif.size() != 0) {
-
+		
+		if (verif != null) {
+			
 			if (updateLink != null) {
 				modele.addAttribute("comByDate", verif);
 			}
-
 			// ajouter l'étudiant dans le modele MVC
 			modele.addAttribute("cmdSearchDate", verif);
 			return "2_adminRechCommandeByDate";
@@ -287,12 +286,10 @@ public class CommandeController {
 	public String soumettreRechercher2(Model modele, @RequestParam("pId") int id,
 			@RequestParam(value = "pLien", required = false) String updateLink) {
 
-		Commande commande = new Commande();
-
-		commande.setIdCommande(id);
+	
 
 		// appel de la méthode service pour ajouter l'étudiant dans la bd
-		Commande verif = cdService.searchCommandeByID(commande);
+		Commande verif = cdService.searchCommandeByID(id);
 
 		if (verif != null) {
 

@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 @Table(name = "produits")
 public class Produit implements Serializable {
@@ -35,6 +38,7 @@ public class Produit implements Serializable {
 	private Categorie categorie;
 
 	@OneToMany(mappedBy = "produit")
+	@Cascade(CascadeType.DELETE)
 	private List<LigneCommande> listeLigneCommande;
 	
 	

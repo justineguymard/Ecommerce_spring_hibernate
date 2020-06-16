@@ -56,4 +56,11 @@ public class CommandeServiceImpl implements ICommandeService {
 		return commandeDao.searchCommandeByDate(commandeIn);
 	}
 
+
+	@Override
+	public Commande searchCommandeByID(int id) {
+		// TODO Auto-generated method stub
+		return commandeDao.searchCommandeByID(id);
+	}
+
 }
